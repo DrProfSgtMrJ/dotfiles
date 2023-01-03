@@ -46,17 +46,7 @@ vnoremap > >gv
 vnoremap <silent> # :s#^#\##<cr>:noh<cr>
 vnoremap <silent> -# :s#^\###<cr>:noh<cr>
 
-" FOR POWERLINE
-python3 from powerline.vim import setup as powerline_setup
-python3 powerline_setup()
-python3 del powerline_setup
-
-set laststatus=2
-
-
-
 " Pathogen load
-filetype off
 
 call pathogen#infect()
 call pathogen#helptags()
@@ -65,6 +55,15 @@ call pathogen#helptags()
 execute pathogen#infect()
 syntax on
 filetype plugin indent on
+
+set hidden
+
+" FOR POWERLINE
+python3 from powerline.vim import setup as powerline_setup
+python3 powerline_setup()
+python3 del powerline_setup
+
+set laststatus=2
 
 " For automatic line numbering
 set number " show line numbers
@@ -103,8 +102,7 @@ set nowritebackup
 set noswapfile
 
 " Uncomment to have nerdtree automatically load nerdtree
-
-autocmd vimenter * NERDTree
+" autocmd vimenter * NERDTree
 "Nerd tree loads on the right
 let g:NERDTreeWinPos = "right"
 
@@ -139,3 +137,11 @@ function! HighlightRepeats() range
     endfor
 endfunction
 command! -range=% HighlightRepeats <line1>,<line2>call HighlightRepeats()
+
+" For rust-lang/rust.vim
+let g:rustfmt_autosave = 1
+let g:rustfmt_emit_files = 1
+let g:rustfmt_fail_silently = 0
+
+" For YouCompleteMe code completeion
+nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>

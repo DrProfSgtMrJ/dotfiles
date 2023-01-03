@@ -1,0 +1,17 @@
+This is a document for notes so I don't have to keep looking stuff up
+
+Vim Tips: 
+    jump back and forth between your open files: (look up :h jumplist for more)
+        Ctrl-i
+        Ctrl-o
+    
+    ,t will open up Nerd Tree
+
+    :e filename will open up another file
+
+    :tabnew will create a new tab
+        ,n and ,m to switch between them
+
+    YouCompleteMe (vim plugin for code completion):
+        I mapped ,g to go to definition or declaration (see .vimrc)
+        

@@ -47,11 +47,12 @@ vnoremap <silent> # :s#^#\##<cr>:noh<cr>
 vnoremap <silent> -# :s#^\###<cr>:noh<cr>
 
 " FOR POWERLINE
-set rtp+=/home/jade/.local/lib/python3.6/site-packages/powerline/bindings/vim
+python3 from powerline.vim import setup as powerline_setup
+python3 powerline_setup()
+python3 del powerline_setup
+
 set laststatus=2
-set showtabline=1
-set noshowmode
-set t_Co=256
+
 
 
 " Pathogen load
@@ -103,7 +104,7 @@ set noswapfile
 
 " Uncomment to have nerdtree automatically load nerdtree
 
-"autocmd vimenter * NERDTree
+autocmd vimenter * NERDTree
 "Nerd tree loads on the right
 let g:NERDTreeWinPos = "right"
 
